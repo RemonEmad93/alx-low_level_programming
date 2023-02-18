@@ -3,7 +3,7 @@
 /**
  * main - entry point
  * Description: prints all single digit numbers
- * Return: 0 (success)
+ * Return: 0 (sucess)
  */
 int main(void)
 {
