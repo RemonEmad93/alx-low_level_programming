@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	char lettern = 'a';
+	char letter = 'a';
 
 	while (letter <= 'z')
 	{
@@ -17,7 +17,7 @@ int main(void)
 		}
 		letter++;
 	}
-	putcher('\n');
+	putchar('\n');
 
 	return (0);
 }
