@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	unsigned int i, count;
+	unsigned int count;
 	unsigned int a = 1, b = 2, c;
 
 	printf("%u, %u", a, b);
