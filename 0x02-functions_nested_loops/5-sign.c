@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 /**
  * print_sign - prints the sign of a number
@@ -13,6 +14,7 @@ int print_sign(int n)
 	if (n > 0)
 	{
 		printf ("+");
+		nanosleep(10, NULL);
 		return (1);
 	}
 	else if (n == 0)
