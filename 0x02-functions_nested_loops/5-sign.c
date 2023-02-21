@@ -13,8 +13,9 @@ int print_sign(int n)
 {
 	if (n > 0)
 	{
+		int x = 10;
 		printf ("+");
-		nanosleep(10, NULL);
+		nanosleep(&x, NULL);
 		return (1);
 	}
 	else if (n == 0)
