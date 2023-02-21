@@ -10,11 +10,11 @@ int main(void)
 	int count;
 	int a = 1, b = 2, c;
 
-	printf("%d, %d", a, b);
+	printf("%u, %u", a, b);
 	for (count = 2; count < 50; count++)
 	{
 		c = a + b;
-		printf(", %d", c);
+		printf(", %u", c);
 		a = b;
 		b = c;
 	}
