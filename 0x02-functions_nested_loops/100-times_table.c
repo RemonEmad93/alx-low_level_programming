@@ -24,9 +24,9 @@ void print_times_table(int n)
 				printf(", ");
 
 			if (product < 10)
-				printf("  %d", product);
+				printf("%d", product);
 			else if (product < 100)
-				printf(" %d", product);
+				printf("%d", product);
 			else
 				printf("%d", product);
 		}
