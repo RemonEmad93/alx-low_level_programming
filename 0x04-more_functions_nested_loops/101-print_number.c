@@ -18,7 +18,7 @@ void print_number(int n)
 		divisor *= 10;
 
 	for (; divisor != 0; divisor /= 10)
-	{	
+	{
 		digit = n / divisor;
 		if (negative)
 			_putchar('0' - digit);
