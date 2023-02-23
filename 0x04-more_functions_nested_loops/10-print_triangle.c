@@ -1,6 +1,5 @@
-#include "holberton.h"
 #include "main.h"
-#include "_putchar.h"
+#include "_putchar.c"
 #include <unistd.h>
 /**
  * print_triangle - Prints a triangle
