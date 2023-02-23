@@ -3,12 +3,12 @@
 #include <time.h>
 
 /**
- * main - prints whether a random number is postive, negative or zero
+ * positive_or_negative - prints whether a random number is postive, negative or zero
  *
  * Return: Always 0 (success)
  */
 
-int main(void)
+int positive_or_negative(void)
 {
 	int n;
 
