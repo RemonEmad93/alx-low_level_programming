@@ -10,17 +10,17 @@
  */
 void print_line(int n)
 {
-	if (n <= 0) /* if n is 0 or less, only print a new line */
-	{
-		_putchar('\n');
-		return;
-	}
+    if (n > 0)
+    {
+        int i;
 
-	/* print n number of underscores */
-	for (int i = 0; i < n; i++)
-	{
-		_putchar('_');
-	}
+        for (i = 0; i < n; i++)
+            _putchar('_');
 
-	_putchar('\n'); /* print a new line at the end */
+        _putchar('\n');
+    }
+    else
+    {
+        _putchar('\n');
+    }
 }
