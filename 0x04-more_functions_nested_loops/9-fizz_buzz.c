@@ -3,7 +3,7 @@
 /**
  * main - entry point for the program
  *
- * Description: prints the numbers from 1 to 100, replacing multiples of 3 with "Fizz",
+ * Description: print nums from 1 to 100, replacing multiples of 3 with "Fizz",
  * multiples of 5 with "Buzz", and multiples of both 3 and 5 with "FizzBuzz"
  *
  * Return: Always 0 (Success)
