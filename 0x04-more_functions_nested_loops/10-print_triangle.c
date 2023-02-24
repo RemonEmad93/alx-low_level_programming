@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include "main.h"
-#include "_putchar.c"
 #include <unistd.h>
 /**
  * print_triangle - Prints a triangle
@@ -12,18 +12,18 @@ void print_triangle(int size)
 
 	if (size <= 0)
 	{		
-		_putchar('\n');
+		putchar('\n');
 		return;
 	}
 
 	for (i = 1; i <= size; i++)
 	{
 		for (j = 1; j <= size - i; j++)
-		_putchar(' ');
+		putchar(' ');
 
 		for (j = 1; j <= i; j++)
-		_putchar('#');
+		putchar('#');
 
-		_putchar('\n');
+		putchar('\n');
 	}
 }
