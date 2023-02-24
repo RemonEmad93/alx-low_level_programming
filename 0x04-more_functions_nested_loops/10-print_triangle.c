@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "main.hi"
+#include "main.h"
 #include <unistd.h>
 /**
  * print_triangle - Prints a triangle
