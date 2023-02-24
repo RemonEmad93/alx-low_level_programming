@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "main.h"
+#include "main.hi"
 #include <unistd.h>
 /**
  * print_triangle - Prints a triangle
@@ -11,7 +11,7 @@ void print_triangle(int size)
 	int i, j;
 
 	if (size <= 0)
-	{		
+	{	
 		putchar('\n');
 		return;
 	}
