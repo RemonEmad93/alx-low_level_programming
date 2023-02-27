@@ -8,31 +8,25 @@
  * Return: Always 0.
  */
 
+#define PASSWORD_LENGTH 10
+#define ASCII_RANGE_START 33
+#define ASCII_RANGE_END 126
+
 int main(void)
 {
-	int password[8];
-	int i, sum;
+	char password[PASSWORD_LENGTH + 1];
+	int i;
 
-	srand(time(0)); /* Seed the random number generator */
+	srand(time(NULL));
 
-	/* Generate random numbers for each digit of the password */
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < PASSWORD_LENGTH; i++)
 	{
-		password[i] = rand() % 10;
+		password[i] = (char)(rand() % (ASCII_RANGE_END - ASCII_RANGE_START + 1) + ASCII_RANGE_START);
 	}
 
-	/* Calculate the sum of the digits */
-	sum = 0;
-	for (i = 0; i < 8; i++)
-	{
-		sum += password[i];
-	}
+	password[PASSWORD_LENGTH] = '\0';
 
-	/* Print the password */
-	printf("%d%d%d%d%d%d%d%d", password[0], password[1], password[2], password[3], password[4], password[5], password[6], password[7]);
-
-	/* Print the sum of the digits */
-	printf("%d\n", sum);
+	printf("Generated password: %s\n", password);
 
 	return (0);
 }
