@@ -10,15 +10,15 @@
  */
 void puts2(char *str)
 {
-        int len = 0;
+	int len = 0;
+	int i;
 
-        /* Get the length of the string */
-        while (*(str + len) != '\0')
-                len++;
+	while (*(str + len) != '\0')
+		len++;
+	
+	/* Print every other character */
+	for (i = 0; i < len; i += 2)
+		_putchar(*(str + i));
 
-        /* Print every other character */
-        for (int i = 0; i < len; i += 2)
-                _putchar(*(str + i));
-
-        _putchar('\n');
+	_putchar('\n');
 }
