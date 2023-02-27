@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 5 // define a constant for the length of the password
+#define PASSWORD_LENGTH 5
 
 /**
  * main - Generates a random 5-digit number as a password.

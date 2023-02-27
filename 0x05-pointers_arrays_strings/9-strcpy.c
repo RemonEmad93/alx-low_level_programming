@@ -20,5 +20,5 @@ char *_strcpy(char *dest, char *src)
 	*(dest + i) = *(src + i);
 
 	/* Return a pointer to the destination buffer */
-	return dest;
+	return (dest);
 }
