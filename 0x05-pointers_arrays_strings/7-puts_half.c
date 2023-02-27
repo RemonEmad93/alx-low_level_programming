@@ -23,7 +23,7 @@ void puts_half(char *str)
 
 	/* Print the second half of the string */
 	for (i = n; i < len; i++)
-		putchar(*(str + i));
+		_putchar(*(str + i));
 
-	putchar('\n');
+	_putchar('\n');
 }
