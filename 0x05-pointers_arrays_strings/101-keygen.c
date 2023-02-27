@@ -2,31 +2,37 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define PASSWORD_LENGTH 5
-
 /**
  * main - Generates a random 5-digit number as a password.
  *
  * Return: Always 0.
  */
+
 int main(void)
 {
-	int password[PASSWORD_LENGTH];
-	int i;
+	int password[8];
+	int i, sum;
 
-	srand(time(NULL));
+	srand(time(0)); /* Seed the random number generator */
 
-	for (i = 0; i < PASSWORD_LENGTH; i++)
+	/* Generate random numbers for each digit of the password */
+	for (i = 0; i < 8; i++)
 	{
 		password[i] = rand() % 10;
 	}
 
-	printf("Random Password: ");
-	for (i = 0; i < PASSWORD_LENGTH; i++)
+	/* Calculate the sum of the digits */
+	sum = 0;
+	for (i = 0; i < 8; i++)
 	{
-		printf("%d", password[i]);
+		sum += password[i];
 	}
-	printf("\n");
+
+	/* Print the password */
+	printf("%d%d%d%d%d%d%d%d", password[0], password[1], password[2], password[3], password[4], password[5], password[6], password[7]);
+
+	/* Print the sum of the digits */
+	printf("%d\n", sum);
 
 	return (0);
 }
