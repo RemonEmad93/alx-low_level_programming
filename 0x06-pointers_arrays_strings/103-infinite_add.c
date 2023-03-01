@@ -41,7 +41,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		k++;
 	}
 
-	for (int i = 0; i < k / 2; i++)
+	for (i = 0; i < k / 2; i++)
 	{
 		char temp = r[i];
 		r[i] = r[k - i - 1];
