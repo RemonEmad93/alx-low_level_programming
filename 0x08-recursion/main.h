@@ -11,3 +11,4 @@ int wildcmp(char *s1, char *s2);
 int _strlen_recursion(char *s);
 int is_prime_helper(int n, int divisor);
 int sqrt_helper(int n, int start, int end);
+int _strlen(char *s);
