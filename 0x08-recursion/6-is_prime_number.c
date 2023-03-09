@@ -17,7 +17,7 @@ int is_prime_number(int n)
 }
 
 /**
- * is_prime_helper - helper function to check if a given integer is a prime number
+ * is_prime_helper - helper function to check if a given integer
  * @n: the integer to check
  * @divisor: the current divisor being tested
  *
@@ -27,7 +27,7 @@ int is_prime_helper(int n, int divisor)
 {
 	if (n % divisor == 0) /* base case: n is divisible by the current divisor */
 		return (0);
-	else if (divisor * divisor > n) /* base case: all possible divisors have been tested */
+	else if (divisor * divisor > n) /* base case: all possible divisors tested */
 		return (1);
 	else /* recursive case: test the next possible divisor */
 		return (is_prime_helper(n, divisor + 1));
