@@ -1,17 +1,30 @@
 #include <stdio.h>
 
 /**
- * main - prints the number of arguments passed to the program
- * @argc: the number of arguments passed to the program
- * @argv: an array of strings containing the arguments
+ * count_args - counts the number of arguments passed to the program
+ * @argc: the number of arguments passed
  *
- * Return: Always 0
+ * Return: the number of arguments
  */
-int main(int argc)
+int count_args(int argc)
 {
-	/* Print the number of arguments */
-	printf("%d\n", argc - 1);
+	return (argc - 1);
+}
 
-	/* Return success */
+/**
+ * main - the entry point of the program
+ * @argc: the number of arguments passed
+ * @argv: an array of pointers to the arguments
+ *
+ * Return: 0 on success
+ */
+int main(int argc, char **argv)
+{
+	int num_args;
+
+	num_args = count_args(argc);
+
+	printf("%d\n", num_args);
+
 	return (0);
 }
