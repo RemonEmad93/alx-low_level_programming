@@ -7,3 +7,4 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int _isdigit(int c);
 int _strlen(char *s);
 void print_error(void);
+unsigned int _strlen(char *s);
