@@ -11,7 +11,7 @@
  */
 int _isdigit(int c)
 {
-	return (c >= '0' && c <= '9');
+    return (c >= '0' && c <= '9');
 }
 
 /**
@@ -22,12 +22,12 @@ int _isdigit(int c)
  */
 int _strlen(char *s)
 {
-	int len = 0;
+    int len = 0;
 
-	while (*s++)
-		len++;
+    while (*s++)
+        len++;
 
-	return (len);
+    return (len);
 }
 
 /**
@@ -36,8 +36,8 @@ int _strlen(char *s)
  */
 void _puts(char *s)
 {
-	while (*s)
-		putchar(*s++);
+    while (*s)
+        putchar(*s++);
 }
 
 /**
@@ -45,9 +45,9 @@ void _puts(char *s)
  */
 void print_error(void)
 {
-	_puts("Error");
-	putchar('\n');
-	exit(98);
+    _puts("Error");
+    putchar('\n');
+    exit(98);
 }
 
 /**
@@ -59,53 +59,55 @@ void print_error(void)
  */
 int main(int argc, char **argv)
 {
-	int i, j, len1, len2, carry, *result;
-	char *num1, *num2;
+    int i, j, len1, len2, carry, *result;
+    char *num1, *num2;
 
-	if (argc != 3)
-		print_error();
+    if (argc != 3)
+        print_error();
 
-	num1, num2 = argv[1], argv[2];
+    num1 = argv[1];
+    num2 = argv[2];
 
-	len1, len2 = _strlen(num1), _strlen(num2);
+    len1 = _strlen(num1);
+    len2 = _strlen(num2);
 
-	for (i = 0; i < len1; i++)
-		if (!_isdigit(num1[i]))
-			print_error();
+    for (i = 0; i < len1; i++)
+        if (!_isdigit(num1[i]))
+            print_error();
 
-	for (i = 0; i < len2; i++)
-		if (!_isdigit(num2[i]))
-			print_error();
+    for (i = 0; i < len2; i++)
+        if (!_isdigit(num2[i]))
+            print_error();
 
-	if (calloc(len1 + len2, sizeof(int)) == NULL)
-		return (1);
+    result = calloc(len1 + len2, sizeof(int));
+    if (result == NULL)
+        return (1);
 
-	for (i = len1 - 1; i >= 0; i--)
-	{
-		carry = 0;
-		for (j = len2 - 1; j >= 0; j--)
-		{
-			carry += (num1[i] - '0') * (num2[j] - '0') + result[i + j + 1];
-			result[i + j + 1] = carry % 10;
-			carry /= 10;
-		}
-		result[i] += carry;
-	}
+    for (i = len1 - 1; i >= 0; i--)
+    {
+        carry = 0;
+        for (j = len2 - 1; j >= 0; j--)
+        {
+            carry += (num1[i] - '0') * (num2[j] - '0') + result[i + j + 1];
+            result[i + j + 1] = carry % 10;
+            carry /= 10;
+        }
+        result[i] += carry;
+    }
 
-	i = 0;
-	while (i < len1 + len2 && result[i] == 0)
-		i++;
+    i = 0;
+    while (i < len1 + len2 && result[i] == 0)
+        i++;
 
-	if (i == len1 + len2)
-		putchar('0');
-	else
-	{
-		for (; i < len1 + len2; i++)
-			putchar(result[i] + '0');
-	}
+    if (i == len1 + len2)
+        putchar('0');
+    else
+    {
+        for (; i < len1 + len2; i++)
+            putchar(result[i] + '0');
+    }
+    putchar('\n');
 
-	putchar('\n');
-
-	free(result);
-	return (0);
+    free(result);
+    return (0);
 }

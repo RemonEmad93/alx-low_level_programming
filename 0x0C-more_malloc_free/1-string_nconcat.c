@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 /**
- * _strlen - Computes the length of a string
+ * _strlen2 - Computes the length of a string
  * @s: Pointer to the string to be measured
  *
  * Return: The length of the string
