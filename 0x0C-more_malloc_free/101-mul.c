@@ -4,63 +4,114 @@
 #include <stdlib.h>
 
 /**
- * _isdigit - checks if a character is a digit
- * @c: the character to check
+ * _strlen - Returns the length of a string
+ * @s: Pointer to the string
  *
- * Return: 1 if c is a digit, 0 otherwise
- */
-int _isdigit(int c)
-{
-    return (c >= '0' && c <= '9');
-}
-
-/**
- * _strlen - computes the length of a string
- * @s: the string to compute the length of
- *
- * Return: the length of the string
+ * Return: The length of the string
  */
 int _strlen(char *s)
 {
     int len = 0;
 
-    while (*s++)
+    while (*s != '\0')
+    {
         len++;
+        s++;
+    }
 
-    return (len);
+    return len;
 }
 
 /**
- * _puts - prints a string to stdout
- * @s: the string to print
+ * _isdigit - Checks if a character is a digit
+ * @c: The character to check
+ *
+ * Return: 1 if c is a digit, 0 otherwise
  */
-void _puts(char *s)
+int _isdigit(char c)
 {
-    while (*s)
-        putchar(*s++);
+    return (c >= '0' && c <= '9');
 }
 
 /**
- * print_error - prints an error message and exits with status 98
+ * print_error - Prints an error message and exits with status 98
  */
 void print_error(void)
 {
-    _puts("Error");
-    putchar('\n');
+    printf("Error\n");
     exit(98);
 }
 
 /**
- * main - multiplies two positive numbers
- * @argc: the number of arguments
- * @argv: the arguments
+ * multiply - Multiplies two positive numbers
+ * @num1: The first number
+ * @num2: The second number
  *
- * Return: 0 on success, 98 on failure
+ * Return: The product of num1 and num2
+ */
+int *multiply(char *num1, char *num2)
+{
+    int len1 = _strlen(num1);
+    int len2 = _strlen(num2);
+    int *result = calloc(len1 + len2, sizeof(int));
+
+    if (result == NULL)
+        return NULL;
+
+    for (int i = len1 - 1; i >= 0; i--)
+    {
+        int carry = 0;
+        int x = num1[i] - '0';
+
+        for (int j = len2 - 1; j >= 0; j--)
+        {
+            int y = num2[j] - '0';
+            int z = result[i + j + 1] + x * y + carry;
+
+            result[i + j + 1] = z % 10;
+            carry = z / 10;
+        }
+
+        result[i] += carry;
+    }
+
+    return result;
+}
+
+/**
+ * print_number - Prints a number represented as an array of digits
+ * @num: The number to print
+ * @len: The length of the array
+ */
+void print_number(int *num, int len)
+{
+    int i = 0;
+
+    while (i < len && num[i] == 0)
+        i++;
+
+    if (i == len)
+        putchar('0');
+    else
+    {
+        for (; i < len; i++)
+            putchar(num[i] + '0');
+    }
+
+    putchar('\n');
+}
+
+/**
+ * main - Entry point
+ * @argc: The number of command-line arguments
+ * @argv: An array of pointers to the arguments
+ *
+ * Return: 0 on success, 98 on error
  */
 int main(int argc, char **argv)
 {
-    int i, j, len1, len2, carry, *result;
     char *num1, *num2;
+    int *result;
 
     if (argc != 3)
         print_error();
@@ -68,46 +119,22 @@ int main(int argc, char **argv)
     num1 = argv[1];
     num2 = argv[2];
 
-    len1 = _strlen(num1);
-    len2 = _strlen(num2);
-
-    for (i = 0; i < len1; i++)
+    for (int i = 0; num1[i] != '\0'; i++)
         if (!_isdigit(num1[i]))
             print_error();
 
-    for (i = 0; i < len2; i++)
+    for (int i = 0; num2[i] != '\0'; i++)
         if (!_isdigit(num2[i]))
             print_error();
 
-    result = calloc(len1 + len2, sizeof(int));
+    result = multiply(num1, num2);
+
     if (result == NULL)
-        return (1);
+        return 1;
 
-    for (i = len1 - 1; i >= 0; i--)
-    {
-        carry = 0;
-        for (j = len2 - 1; j >= 0; j--)
-        {
-            carry += (num1[i] - '0') * (num2[j] - '0') + result[i + j + 1];
-            result[i + j + 1] = carry % 10;
-            carry /= 10;
-        }
-        result[i] += carry;
-    }
-
-    i = 0;
-    while (i < len1 + len2 && result[i] == 0)
-        i++;
-
-    if (i == len1 + len2)
-        putchar('0');
-    else
-    {
-        for (; i < len1 + len2; i++)
-            putchar(result[i] + '0');
-    }
-    putchar('\n');
+    print_number(result, _strlen(num1) + _strlen(num2));
 
     free(result);
-    return (0);
+
+    return 0;
 }

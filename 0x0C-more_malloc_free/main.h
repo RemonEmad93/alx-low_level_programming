@@ -8,3 +8,5 @@ int _isdigit(int c);
 int _strlen(char *s);
 void print_error(void);
 unsigned int _strlen2(char *s);
+int *multiply(char *num1, char *num2);
+void print_number(int *num, int len);
