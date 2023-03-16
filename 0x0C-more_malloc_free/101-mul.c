@@ -91,14 +91,14 @@ void print_number(int *num, int len)
         i++;
 
     if (i == len)
-        putchar('0');
+        _putchar('0');
     else
     {
         for (; i < len; i++)
-            putchar(num[i] + '0');
+            _putchar(num[i] + '0');
     }
 
-    putchar('\n');
+    _putchar('\n');
 }
 
 /**
