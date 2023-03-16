@@ -59,21 +59,53 @@ void print_error(void)
  */
 int main(int argc, char **argv)
 {
+	int i, j, len1, len2, carry, *result;
 	char *num1, *num2;
 
-	if (argc != 3 || !_isnumber(argv[1]) || !_isnumber(argv[2]))
+	if (argc != 3)
 		print_error();
 
-	num1 = argv[1];
-	num2 = argv[2];
+	num1, num2 = argv[1], argv[2];
 
-	char *product = multiply(num1, num2);
+	len1, len2 = _strlen(num1), _strlen(num2);
 
-	if (product == NULL)
+	for (i = 0; i < len1; i++)
+		if (!_isdigit(num1[i]))
+			print_error();
+
+	for (i = 0; i < len2; i++)
+		if (!_isdigit(num2[i]))
+			print_error();
+
+	if (calloc(len1 + len2, sizeof(int)) == NULL)
 		return (1);
 
-	printf("%s\n", product);
-	free(product);
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			carry += (num1[i] - '0') * (num2[j] - '0') + result[i + j + 1];
+			result[i + j + 1] = carry % 10;
+			carry /= 10;
+		}
+		result[i] += carry;
+	}
 
+	i = 0;
+	while (i < len1 + len2 && result[i] == 0)
+		i++;
+
+	if (i == len1 + len2)
+		putchar('0');
+	else
+	{
+		for (; i < len1 + len2; i++)
+			putchar(result[i] + '0');
+	}
+
+	putchar('\n');
+
+	free(result);
 	return (0);
 }
