@@ -26,11 +26,15 @@ int main(int argc, char **argv)
         return (2);
     }
 
+    unsigned char *ptr = (unsigned char *)main;
+
     for (i = 0; i < num_bytes; i++)
-        printf("%02x ", ((unsigned char *)main)[i]);
+    {
+        printf("%02x", *ptr);
+        ptr++;
+    }
 
     printf("\n");
 
     return (0);
 }
-
