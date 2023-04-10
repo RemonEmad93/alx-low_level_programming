@@ -13,7 +13,7 @@
  *         or 0 if the file can not be opened or read, or if filename is NULL,
  *         or if write fails or does not write the expected amount of bytes
  */
-ssize_t read_textfile(const char *filename, size_t letters)
+size_t read_textfile(const char *filename, size_t letters)
 {
     int fd, num_read;
     char *buf;
